@@ -14,7 +14,20 @@ public class Queen extends Coin {
 
 	@Override
 	public boolean isRoutePossible(Spot start, Spot end) {
-		// TODO Auto-generated method stub
+
+		int xDiff, yDiff;
+		
+		 xDiff = Math.abs(start.getX()-end.getX());
+		 yDiff = Math.abs(start.getY()-end.getY());
+		 
+		 
+		 if(((xDiff==0) && (yDiff>0)) || ((yDiff==0) && (xDiff>0)) || ((xDiff == yDiff))) {
+			 
+			 
+			 
+			 return true;
+			 
+		 }
 		return false;
 	}
 

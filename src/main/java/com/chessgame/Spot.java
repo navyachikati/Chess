@@ -22,5 +22,8 @@ public class Spot {
 	public int getY() {
 		return y;
 	}
-
+	
+	public void setCoin(Coin coin) {
+		this.coin = coin;
+	}
 }

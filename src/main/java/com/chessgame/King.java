@@ -7,12 +7,6 @@ public class King extends Coin {
 	}
 
 		@Override
-		public boolean move(Spot start, Spot end) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
 		public boolean isRoutePossible(Spot start, Spot end) {
 			// TODO Auto-generated method stub
 			

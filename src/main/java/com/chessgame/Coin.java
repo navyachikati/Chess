@@ -24,36 +24,37 @@ public abstract class Coin {
 		this.alive = alive;
 	}
 	
-	public abstract boolean move(Spot start,Spot end); 
-	
-	public abstract boolean isRoutePossible(Spot start, Spot end );
-	
-	public boolean isMovePossible(Spot start, Spot end ) {
-		if(end.getCoin() == null) {
-			//write move logic
-			return true;
+	public boolean move(Spot start, Spot end) {
+		
+		if(start.getCoin().isWhite() == end.getCoin().isWhite()) {
+			
+			return false;
 			
 		}
 		
-		
-		
-		
-		if(start.getCoin().isWhite() == end.getCoin().isWhite()) {
-		return false;
+		if (!isRoutePossible(start, end)) {
+			return false;
 		}
-	
-	
 		
+		if(end.getCoin() == null) {
+			
+			Coin coin = start.getCoin();
+			end.setCoin(coin);
+			start.setCoin(null);
+		}
+		else {
+			Coin startCoin = start.getCoin();
+			Coin endCoin = end.getCoin();
+			end.setCoin(startCoin);
+			start.setCoin(null);
+			endCoin.setAlive(false);
+		}			
 		
-		
-		
-		
-		
-		
-		return false;
+		return true;
 	}
+ 
 	
-	
+	public abstract boolean isRoutePossible(Spot start, Spot end );
 		
 		
 }
